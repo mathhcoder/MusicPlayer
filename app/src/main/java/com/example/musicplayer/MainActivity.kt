@@ -37,6 +37,10 @@ class MainActivity : AppCompatActivity() {
         }
         else loadData()
 
+//        for(i  in 0 until  songModleData.size step 3){
+//            Toast.makeText(applicationContext , songModleData[i].mSongName,Toast.LENGTH_SHORT).show()
+//        }
+
 
     }
 

@@ -10,7 +10,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.musicplayer.MainActivity
 import com.example.musicplayer.R
+import com.example.musicplayer.SinglePlayer
 import com.example.musicplayer.interfase.CostomItemClickListener
 import com.example.musicplayer.modle.SongModel
 import com.example.musicplayer.service.PlayMusicService
@@ -44,16 +46,23 @@ class SongListAdapter(SongModel:ArrayList<SongModel> , context: Context):Recycle
         holder!!.songTV.text = songName
         holder.durationTv.text = songDuration
         holder.setOnCostomItemClickListener(object:CostomItemClickListener{
+
             override fun onCostomClic(view: View, pos: Int) {
                 for(i in 0 until mSongModel.size){
                     allMusicList.add(mSongModel[i].mSongPath)
                 }
                 Log.i("allmusiclist" , allMusicList.toString())
-                Toast.makeText(mContext,"songTitle : " + songName,Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext,"id ${pos}  songTitle : " + songName,Toast.LENGTH_SHORT).show()
+
+                /*
                 var musicDataIntent = Intent(mContext ,PlayMusicService::class.java)
                 musicDataIntent.putStringArrayListExtra(MUSICLEST , allMusicList)
                 musicDataIntent.putExtra(MUSICITEMPOS , pos)
                 mContext.startService(musicDataIntent)
+                */
+
+               // var intent= Intent(this@MainActivity , SinglePlayer.class)
+
             }
         })
 
